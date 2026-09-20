@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML + CSS + JS – jak to działa?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    h1.page-title {
+      text-align: center;
+      padding: 1.5rem 1rem 0.5rem;
+      font-size: 1.8rem;
+      color: #1a1a1a;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .section {
+      background: white;
+      margin: 0 0 1.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: #2563eb;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 0;
+      min-height: 220px;
+    }
+
+    .code-block, .preview-block, .btn-block {
+      padding: 1rem;
+    }
+
+    .code-block {
+      background: #1e1e1e;
+      color: #e5e5e5;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      border-right: 1px solid #ddd;
+    }
+
+    .code-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .code-block code {
+      color: #e5e5e5;
+    }
+
+    .preview-block {
+      background: #fafafa;
+      border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .preview-block h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .preview-block h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #444;
+    }
+
+    .preview-block p {
+      margin-bottom: 0.4rem;
+    }
+
+    .preview-block ol, .preview-block ul {
+      margin-left: 1.4rem;
+    }
+
+    .preview-block li {
+      margin-bottom: 0.3rem;
+    }
+
+    .btn-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
+      min-width: 110px;
+    }
+
+    .copy-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .copy-btn:active {
+      transform: scale(0.97);
+    }
+
+    .copy-btn.copied {
+      background: #16a34a;
+    }
+
+    /* Style tylko dla podglądu sekcji 3 */
+    .demo-duzy { font-size: 22px; }
+    .demo-czerwony { color: #dc2626; }
+    .demo-zielone-tlo { background-color: #bbf7d0; padding: 2px 6px; border-radius: 4px; }
+    .demo-pogrubiony { font-weight: bold; }
+    .demo-kursywa { font-style: italic; }
+
+    /* Style dla sekcji 4 */
+    .js-para {
+      margin: 0.4rem 0;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: color 0.3s, background 0.3s;
+    }
+
+    .js-btn {
+      margin-top: 0.8rem;
+      background: #7c3aed;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .js-btn:hover {
+      background: #6d28d9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      .section-content {
+        grid-template-columns: 1fr;
+      }
+      .code-block, .preview-block {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .btn-block {
+        min-height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">Jak działa HTML, CSS i JavaScript?</h1>
+  <p class="subtitle">Kod → Podgląd → Skopiuj i wypróbuj u siebie</p>
+
+  <!-- ==================== SEKCJA 1 ==================== -->
+  <div class="section">
+    <div class="section-header">1. Podstawowe znaczniki HTML (nagłówki i formatowanie tekstu)</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code1">&lt;h1&gt;Witaj w świecie HTML!&lt;/h1&gt;
+&lt;h2&gt;Podstawowe znaczniki&lt;/h2&gt;
+&lt;p&gt;To jest &lt;b&gt;pogrubiony&lt;/b&gt; tekst.&lt;/p&gt;
+&lt;p&gt;To jest &lt;u&gt;podkreślony&lt;/u&gt; tekst.&lt;/p&gt;
+&lt;p&gt;To jest &lt;i&gt;pochylony&lt;/i&gt; tekst.&lt;/p&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <h1>Witaj w świecie HTML!</h1>
+        <h2>Podstawowe znaczniki</h2>
+        <p>To jest <b>pogrubiony</b> tekst.</p>
+        <p>To jest <u>podkreślony</u> tekst.</p>
+        <p>To jest <i>pochylony</i> tekst.</p>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code1', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEKCJA 2 ==================== -->
+  <div class="section">
+    <div class="section-header">2. Lista numerowana + style bezpośrednio w tagach</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code2">&lt;h1&gt;Moje ulubione filmy&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li style="color: #e11d48;"&gt;Incepcja&lt;/li&gt;
+  &lt;li style="color: #2563eb;"&gt;Matrix&lt;/li&gt;
+  &lt;li style="color: #16a34a;"&gt;Interstellar&lt;/li&gt;
+  &lt;li style="color: #9333ea;"&gt;Pulp Fiction&lt;/li&gt;
+  &lt;li style="color: #ea580c;"&gt;Shrek&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <h1>Moje ulubione filmy</h1>
+        <ol>
+          <li style="color: #e11d48;">Incepcja</li>
+          <li style="color: #2563eb;">Matrix</li>
+          <li style="color: #16a34a;">Interstellar</li>
+          <li style="color: #9333ea;">Pulp Fiction</li>
+          <li style="color: #ea580c;">Shrek</li>
+        </ol>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code2', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEKCJA 3 ==================== -->
+  <div class="section">
+    <div class="section-header">3. CSS – klasy (każda klasa zmienia tylko jedną rzecz)</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code3">&lt;style&gt;
+&nbsp;&nbsp;.duzy { font-size: 22px; }
+&nbsp;&nbsp;.czerwony { color: #dc2626; }
+&nbsp;&nbsp;.zielone-tlo { background-color: #bbf7d0; }
+&nbsp;&nbsp;.pogrubiony { font-weight: bold; }
+&nbsp;&nbsp;.kursywa { font-style: italic; }
+&lt;/style&gt;
+
+&lt;ul&gt;
+  &lt;li class="duzy"&gt;Duży tekst&lt;/li&gt;
+  &lt;li class="czerwony"&gt;Czerwony tekst&lt;/li&gt;
+  &lt;li class="zielone-tlo"&gt;Zielone tło&lt;/li&gt;
+  &lt;li class="pogrubiony kursywa"&gt;Pogrubiony i pochylony&lt;/li&gt;
+  &lt;li class="duzy czerwony zielone-tlo"&gt;Wszystko naraz!&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <ul>
+          <li class="demo-duzy">Duży tekst</li>
+          <li class="demo-czerwony">Czerwony tekst</li>
+          <li class="demo-zielone-tlo">Zielone tło</li>
+          <li class="demo-pogrubiony demo-kursywa">Pogrubiony i pochylony</li>
+          <li class="demo-duzy demo-czerwony demo-zielone-tlo">Wszystko naraz!</li>
+        </ul>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code3', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEKCJA 4 ==================== -->
+  <div class="section">
+    <div class="section-header">4. JavaScript – zmiana kolorów po kliknięciu</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code4">&lt;p id="p1"&gt;Paragraf pierwszy&lt;/p&gt;
+&lt;p id="p2"&gt;Paragraf drugi&lt;/p&gt;
+&lt;p id="p3"&gt;Paragraf trzeci&lt;/p&gt;
+
+&lt;button onclick="zmienKolory()"&gt;Zmień kolory!&lt;/button&gt;
+
+&lt;script&gt;
+function zmienKolory() {
+  document.getElementById("p1").style.color = "red";
+  document.getElementById("p2").style.color = "blue";
+  document.getElementById("p3").style.color = "green";
+}
+&lt;/script&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <p id="demo-p1" class="js-para">Paragraf pierwszy</p>
+        <p id="demo-p2" class="js-para">Paragraf drugi</p>
+        <p id="demo-p3" class="js-para">Paragraf trzeci</p>
+        <button class="js-btn" onclick="zmienKoloryDemo()">Zmień kolory!</button>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code4', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Skopiuj kod → wklej do pliku .html → otwórz w przeglądarce i zobacz, jak działa!
+  </footer>
+
+  <script>
+    // Funkcja kopiowania do schowka
+    function skopiuj(id, btn) {
+      const tekst = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(tekst).then(() => {
+        const staryTekst = btn.innerText;
+        btn.innerText = "Skopiowano!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = staryTekst;
+          btn.classList.remove("copied");
+        }, 1500);
+      }).catch(err => {
+        alert("Nie udało się skopiować: " + err);
+      });
+    }
+
+    // Prosty przykład JS z sekcji 4 (wersja działająca na stronie)
+    function zmienKoloryDemo() {
+      document.getElementById("demo-p1").style.color = "red";
+      document.getElementById("demo-p2").style.color = "blue";
+      document.getElementById("demo-p3").style.color = "green";
+    }
+  </script>
+
+</body>
+</html>
