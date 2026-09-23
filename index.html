@@ -288,7 +288,60 @@
 
   <!-- ==================== SEKCJA 4 ==================== -->
   <div class="section">
-    <div class="section-header">4. JavaScript – zmiana kolorów po kliknięciu</div>
+    <div class="section-header">4. Ćwiczenie – znajdź błędy w HTML i CSS</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code-exercise">&lt;style&gt;
+.niebieski {
+  color: #2563eb;
+  font-weight: bold;
+  padding: 4px;
+}
+.wyrozniony {
+  background-color: #fef3c7;
+  border-radius: 4px;
+  font-style: italic;
+}
+&lt;/style&gt;
+
+&lt;h1 style="color: #dc2626;"&gt;Moje hobby&lt;/h1&gt;
+&lt;h2 style="color #16a34a;"&gt;Co lubię robić?&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li class="niebieski"&gt;Czytanie&lt;/li&gt;
+  &lt;li class="wyrozniony"&gt;Rysowanie&lt;/li&gt;
+  &lt;li class="niebeski"&gt;Jazda na rowerze&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li class="wyrozniony"&gt;Książki&lt;/li&gt;
+  &lt;li class="niebieski"&gt;Muzyka&lt;/li&gt;
+  &lt;li class="wyrozniony"&gt;Film&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <h1 style="color: #dc2626;">Moje hobby</h1>
+        <h2 style="color: #16a34a;">Co lubię robić?</h2>
+        <ol>
+          <li class="demo-niebieski">Czytanie</li>
+          <li class="demo-wyrozniony">Rysowanie</li>
+          <li class="demo-niebieski">Jazda na rowerze</li>
+        </ol>
+        <ul>
+          <li class="demo-wyrozniony">Książki</li>
+          <li class="demo-niebieski">Muzyka</li>
+          <li class="demo-wyrozniony">Film</li>
+        </ul>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code-exercise', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEKCJA 5 ==================== -->
+  <div class="section">
+    <div class="section-header">5. JavaScript – zmiana kolorów po kliknięciu</div>
     <div class="section-content">
       <div class="code-block">
         <pre><code id="code4">&lt;p id="p1"&gt;Paragraf pierwszy&lt;/p&gt;
