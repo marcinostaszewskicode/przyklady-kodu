@@ -143,11 +143,17 @@
     /* Style tylko dla podglądu sekcji 3 */
     .demo-duzy { font-size: 22px; }
     .demo-czerwony { color: #dc2626; }
-    .demo-zielone-tlo { background-color: #bbf7d0; padding: 2px 6px; border-radius: 4px; }
+    .demo-inne-tlo { background-color: #bbf7d0; padding: 2px 6px; border-radius: 4px; }
     .demo-pogrubiony { font-weight: bold; }
     .demo-kursywa { font-style: italic; }
 
     /* Style dla sekcji 4 */
+    .demo-important { font-size: 22px; font-weight: bold; text-decoration: underline; }
+    .demo-danger { color: #dc2626; }
+    .demo-add-bg { background-color: #ccccdd; padding: 2px 6px; border-radius: 4px; }
+    .demo-italic { font-style: italic; }
+
+    /* Style dla sekcji 5 */
     .js-para {
       margin: 0.4rem 0;
       padding: 0.3rem 0.5rem;
@@ -252,13 +258,13 @@
 
   <!-- ==================== SEKCJA 3 ==================== -->
   <div class="section">
-    <div class="section-header">3. CSS – klasy (każda klasa zmienia tylko jedną rzecz)</div>
+    <div class="section-header">3. CSS – klasy (każda klasa zmienia tylko jedną właściwość)</div>
     <div class="section-content">
       <div class="code-block">
         <pre><code id="code3">&lt;style&gt;
 .duzy { font-size: 22px; }
 .czerwony { color: #dc2626; }
-.zielone-tlo { background-color: #bbf7d0; }
+.inne-tlo { background-color: #bbf7d0; }
 .pogrubiony { font-weight: bold; }
 .kursywa { font-style: italic; }
 &lt;/style&gt;
@@ -266,18 +272,18 @@
 &lt;ul&gt;
   &lt;li class="duzy"&gt;Duży tekst&lt;/li&gt;
   &lt;li class="czerwony"&gt;Czerwony tekst&lt;/li&gt;
-  &lt;li class="zielone-tlo"&gt;Zielone tło&lt;/li&gt;
+  &lt;li class="inne-tlo"&gt;Inne tło&lt;/li&gt;
   &lt;li class="pogrubiony kursywa"&gt;Pogrubiony i pochylony&lt;/li&gt;
-  &lt;li class="duzy czerwony zielone-tlo"&gt;Wszystko naraz!&lt;/li&gt;
+  &lt;li class="duzy czerwony inne-tlo"&gt;Wszystko naraz!&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
       </div>
       <div class="preview-block">
         <ul>
           <li class="demo-duzy">Duży tekst</li>
           <li class="demo-czerwony">Czerwony tekst</li>
-          <li class="demo-zielone-tlo">Zielone tło</li>
+          <li class="demo-inne-tlo">Inne tło</li>
           <li class="demo-pogrubiony demo-kursywa">Pogrubiony i pochylony</li>
-          <li class="demo-duzy demo-czerwony demo-zielone-tlo">Wszystko naraz!</li>
+          <li class="demo-duzy demo-czerwony demo-inne-tlo">Wszystko naraz!</li>
         </ul>
       </div>
       <div class="btn-block">
@@ -287,8 +293,43 @@
   </div>
 
   <!-- ==================== SEKCJA 4 ==================== -->
+<div class="section">
+    <div class="section-header">4. CSS - zmiany stylu za pomocą klas</div>
+    <div class="section-content">
+      <div class="code-block">
+        <pre><code id="code3">&lt;style&gt;
+.important { font-size: 22px; font-weight: bold; text-decoration: underline; }
+.danger { color: #dc2626; }
+.add-bg { background-color: #ccccdd; }
+.italic { font-style: italic; }
+&lt;/style&gt;
+
+&lt;ul&gt;
+  &lt;li class="important"&gt;Ważny tekst&lt;/li&gt;
+  &lt;li class="danger"&gt;Czerwony tekst&lt;/li&gt;
+  &lt;li class="add-bg danger"&gt;Inne tło i kolor&lt;/li&gt;
+  &lt;li class="italic"&gt;Pogrubiony i pochylony&lt;/li&gt;
+  &lt;li class="danger italic add-bg"&gt;Tekst jest czerwony, pochylony i na innym tle&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <div class="preview-block">
+        <ul>
+          <li class="demo-important">Ważny tekst</li>
+          <li class="demo-danger">Czerwony tekst</li>
+          <li class="demo-add-bg demo-danger">Inne tło i kolor</li>
+          <li class="demo-italic">Pogrubiony i pochylony</li>
+          <li class="demo-danger demo-italic demo-add-bg">Tekst jest czerwony, pochylony i na innym tle</li>
+        </ul>
+      </div>
+      <div class="btn-block">
+        <button class="copy-btn" onclick="skopiuj('code3', this)">Skopiuj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEKCJA 5 ==================== -->
   <div class="section">
-    <div class="section-header">4. JavaScript – zmiana kolorów po kliknięciu</div>
+    <div class="section-header">5. JavaScript – zmiana kolorów po kliknięciu</div>
     <div class="section-content">
       <div class="code-block">
         <pre><code id="code4">&lt;p id="p1"&gt;Paragraf pierwszy&lt;/p&gt;
